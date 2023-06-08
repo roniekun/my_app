@@ -1,0 +1,10 @@
+.app__container {
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+
+}
+
