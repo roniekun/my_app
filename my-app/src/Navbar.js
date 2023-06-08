@@ -3,12 +3,24 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
-  const [showNavbar, setShowNavbar] = useState(true);
+  const [showNavbar, setShowNavbar] = useState(window.innerWidth > 768);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
 
-  const toggleSidebar = () => {
+  const toggleNavbar = () => {
     setShowNavbar(!showNavbar);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setShowNavbar(window.innerWidth > 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,9 +29,14 @@ const Navbar = () => {
       setPrevScrollPos(currentScrollPos);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    if (window.innerWidth > 768) {
+      window.addEventListener('scroll', handleScroll);
+    }
+
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      if (window.innerWidth > 768) {
+        window.removeEventListener('scroll', handleScroll);
+      }
     };
   }, [prevScrollPos]);
 
@@ -33,23 +50,23 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="navbar__list">
-            <Link to="/About" className="navbar__link">
+            <Link to="/about" className="navbar__link">
               ABOUT
             </Link>
           </li>
           <li className="navbar__list">
-            <Link to="/Portfolio" className="navbar__link">
+            <Link to="/portfolio" className="navbar__link">
               PORTFOLIO
             </Link>
           </li>
           <li className="navbar__list">
-            <Link to="/Contact" className="navbar__link">
+            <Link to="/contact" className="navbar__link">
               CONTACT
             </Link>
           </li>
         </div>
       </ul>
-      <button className="toggle__btn" onClick={toggleSidebar}>
+      <button className="toggle__btn" onClick={toggleNavbar}>
         {showNavbar ? 'X' : '<<'}
       </button>
     </nav>

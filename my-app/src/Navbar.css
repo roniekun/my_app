@@ -28,12 +28,16 @@
   display: inline-block;
   text-decoration: none;
   margin-right: 25px;
-
 }
 
 .navbar__link {
   color: black;
   text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar__link:hover {
+  font-weight: 400;
 }
 
 @media (max-width: 768px) {
@@ -49,24 +53,28 @@
     padding: 0;
     background-color: black;
     color: #fff;
-    padding-top: 40px;;
+    padding-top: 40px;
   }
-  
+
   .navbar__list {
     display: block;
     margin-bottom: 30px;
   }
-  
-  .navbar__link{
 
+  .navbar__link {
     color: white;
   }
-  
+
   .toggle__btn {
     border-radius: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 25px;
+    position: fixed;
+  }
+
+  .navbar__link:hover {
+    color: aliceblue;
   }
 }
