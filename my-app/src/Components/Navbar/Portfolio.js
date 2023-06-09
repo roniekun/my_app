@@ -4,66 +4,7 @@ import './Portfolio.css';
 function Portfolio() {
   return (
     <div className='portfolio__container'>
-      <p>
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        Hello<br />
-        
-      </p>
+  portfolio
     </div>
   );
 }

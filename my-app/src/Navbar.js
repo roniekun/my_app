@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(window.innerWidth > 768);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const location = useLocation();
 
   const toggleNavbar = () => {
     setShowNavbar(!showNavbar);
@@ -25,8 +26,11 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
-      setShowNavbar(prevScrollPos > currentScrollPos || currentScrollPos === 0);
-      setPrevScrollPos(currentScrollPos);
+
+      if (window.innerWidth > 768) {
+        setShowNavbar(prevScrollPos > currentScrollPos || currentScrollPos === 0);
+        setPrevScrollPos(currentScrollPos);
+      }
     };
 
     if (window.innerWidth > 768) {
@@ -41,35 +45,27 @@ const Navbar = () => {
   }, [prevScrollPos]);
 
   return (
-    <nav className={showNavbar ? 'navbar__container' : 'navbar__hidden'}>
-      <ul className="navbar__ul">
+    <>
+      <nav className={showNavbar ? 'navbar__container' : 'navbar__container__hidden'}>
         <div className={showNavbar ? 'link__wrapper' : 'link__wrapper__hidden'}>
-          <li className="navbar__list">
-            <Link to="/" className="navbar__link">
-              HOME
-            </Link>
-          </li>
-          <li className="navbar__list">
-            <Link to="/about" className="navbar__link">
-              ABOUT
-            </Link>
-          </li>
-          <li className="navbar__list">
-            <Link to="/portfolio" className="navbar__link">
-              PORTFOLIO
-            </Link>
-          </li>
-          <li className="navbar__list">
-            <Link to="/contact" className="navbar__link">
-              CONTACT
-            </Link>
-          </li>
+          <Link to="/" className={`navbar__link ${location.pathname === '/' ? 'active' : ''}`}>
+            home
+          </Link>
+          <Link to="/about" className={`navbar__link ${location.pathname === '/about' ? 'active' : ''}`}>
+            about
+          </Link>
+          <Link to="/portfolio" className={`navbar__link ${location.pathname === '/portfolio' ? 'active' : ''}`}>
+            portfolio
+          </Link>
+          <Link to="/contact" className={`navbar__link ${location.pathname === '/contact' ? 'active' : ''}`}>
+            contact
+          </Link>
         </div>
-      </ul>
+      </nav>
       <button className="toggle__btn" onClick={toggleNavbar}>
         {showNavbar ? 'X' : '<<'}
       </button>
-    </nav>
+    </>
   );
 };
 
