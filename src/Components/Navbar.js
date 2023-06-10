@@ -25,7 +25,7 @@ const Navbar = ({showNavbar,setShowNavbar}) => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [setShowNavbar,isDesktop]); // Add setShowNavbar as a dependency
+  }, [setShowNavbar,isDesktop]);
 
   useEffect(() => {
     const handleScroll = () => {
