@@ -1,0 +1,22 @@
+.social__links_container{
+
+    display: block;
+    position: relative;
+}
+
+.social__links{
+
+    display:inline-flex;
+    flex-direction: column;
+    
+   
+}
+.btn{
+    display: inline;
+    height: auto;
+    width: auto;
+    background-color: transparent;
+ 
+    border: none;
+}
+@media (max-width: 768px) {}

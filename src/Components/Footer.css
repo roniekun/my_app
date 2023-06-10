@@ -1,0 +1,21 @@
+.footer__container{
+        bottom: 0;
+        position: relative;
+        height: 75px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        z-index: 1;
+     
+      }
+      
+.text{
+    text-transform: capitalize;
+}
+.footer__container.hidden{
+    display: hidden;
+    z-index: -1;
+} 
+
