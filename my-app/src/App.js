@@ -1,14 +1,25 @@
-import React from 'react';
-import Header from './Header';
+import React, { useState} from 'react';
+import Header from './Components/Header';
 import './App.css'
+import Footer from './Components/Footer';
 
 const App = () => {
-  return (
-    <div className='app__container'>
+  const [showNavbar, setShowNavbar] = useState(window.innerWidth > 768);
+  
+  const handleToggleNavbar = () => {
+    setShowNavbar(!showNavbar);
+  };
 
-      <Header/>
-    </div>
+  return (
     
+
+    <div className='app__container'>
+          <button className="toggle__btn" onClick={handleToggleNavbar}>
+        {showNavbar ? 'X' : '<<'}
+      </button>
+      <Header showNavbar={showNavbar} setShowNavbar={setShowNavbar} handdleToggleNavbar={handleToggleNavbar} />
+      <Footer showNavbar={showNavbar} handleToggleNavbar={handleToggleNavbar} setShowNavbar={setShowNavbar} handdleToggleNavbar={handleToggleNavbar}  />
+    </div> 
 
   );
 };
