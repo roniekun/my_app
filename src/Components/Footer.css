@@ -13,9 +13,26 @@
       
 .text{
     text-transform: capitalize;
+    display: flex;
 }
+
+    p{
+        display: inline-block;
+    }
+
 .footer__container.hidden{
     display: hidden;
     z-index: -1;
 } 
+@media (max-width: 768px) {
+
+    .text{
+        display: flex;
+        max-width: fit-content;
+     
+    }
+    p{
+        display: block;
+    }
+}
 

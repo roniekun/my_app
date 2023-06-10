@@ -19,7 +19,7 @@ function Footer({ showNavbar}) {
  {showFooter && (
     <>
       <SocialLinks />
-      <span className="text">copyright 2023. right reserved</span>
+      <span className="text"><p>copyright 2023.</p> <p> rights reserved </p></span>
     </>
   )}
 </div>
