@@ -1,0 +1,30 @@
+.social__links_container{
+
+    display: block;
+    position: relative;
+}
+
+.social__links{
+
+    display:inline-flex;
+    flex-direction: column;
+    color: white;
+    list-style: none;
+    
+   
+}
+.btn{
+    display: inline;
+    height: auto;
+    width: auto;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+@media (max-width: 768px) {
+    .social__links__ul{
+        display: flex;
+        flex-direction: row;
+        
+    }
+}
