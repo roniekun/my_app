@@ -18,18 +18,7 @@ function Footer({ showNavbar}) {
     <div className={`footer__container ${!showFooter ? 'hidden' :''}`}>
  {showFooter && (
     <>
-      <SocialLinks />
-      <ul>
-        <li className='text'>
-        <p>copyright 2023.</p> 
-
-        </li>
-        <li className='text'>
-        <p>all rights reserved </p>
-
-        </li>
-      </ul>
-    
+      <SocialLinks />   
     </>
   )}
 </div>

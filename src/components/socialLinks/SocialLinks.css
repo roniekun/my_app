@@ -1,30 +1,28 @@
-.social__links_container{
-
-    display: block;
-    position: relative;
-}
-
-.social__links{
-
-    display:inline-flex;
+.social__links__container{
+    display: flex;
     flex-direction: column;
-    color: white;
-    list-style: none;
-    
-   
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+
 }
-.btn{
-    display: inline;
-    height: auto;
-    width: auto;
+.btn__container{
+    display: flex;
+    flex-direction: row;
+}
+.link__btn{
+    border:none;
+    cursor: pointer;
     background-color: transparent;
-    border: none;
-    color: white;
+    display: block;
+    
 }
 @media (max-width: 768px) {
-    .social__links__ul{
-        display: flex;
-        flex-direction: row;
-        
+    .link__btn{
+
+        color: white;
+
     }
+    
 }

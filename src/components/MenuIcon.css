@@ -1,0 +1,65 @@
+/* CSS for the burger menu icon */
+.burger-menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: fixed;
+    border-radius: 3px;
+    box-sizing: border-box;
+    cursor: pointer;
+    z-index: 9999;
+    right: 0;
+    top: 0;
+    margin: 20px;
+    width: 40px;
+    height: 25px;
+
+    background-color: transparent;
+  }
+  
+  .burger-line {
+  
+    width: 40%;
+    height: 3px;
+    background-color:white;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    position: relative;
+    transform: translateX(-35%);
+    align-self: flex-end;
+
+   
+  }
+  .burger-linee {
+    width: 70%;
+    height: 3px;
+    background-color:white;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    position: relative;
+    align-self: center;
+  }
+  .burger-lineee {
+    width: 40%;
+    height: 3px;
+    background-color:white; /* Adjust the color as needed */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transform: translateX(35%);
+    position: relative;
+    align-self: flex-start;
+  }
+  .burger-line.close {
+    transform: translateX(-115%);
+    background-color: black;
+    
+  }
+
+.burger-linee.close{
+  background-color: black;
+}
+  
+  
+  .burger-lineee.close {
+    transform: translateX(115%);
+    background-color: black;
+   
+ 
+  }

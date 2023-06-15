@@ -4,8 +4,9 @@ import './SocialLinks.css';
 const SocialLinks = () => {
   const socialMediaLinks = [
     { name: 'Facebook', icon: 'facebook', url: 'https://www.facebook.com/ronieuxjpg' },
-    { name: 'Twitter', icon: 'twitter', url: 'https://www.twitter.com/' },
+    { name: 'LinkedIn', icon: 'linkedin', url: 'https://linkedin.com/in/roniebenitez' },
     { name: 'Instagram', icon: 'instagram', url: 'https://www.instagram.com/ronieuxjpg' },
+    { name: 'Github', icon: 'github', url: 'https://www.github.com/roniekun' },
     // Add more social media links as needed
   ];
 
@@ -14,19 +15,14 @@ const SocialLinks = () => {
   };
 
   return (
-    <div className='Social_links__container'>
-          <ul className='social__links__ul'>
-      {socialMediaLinks.map((link) => (
-        <li className='social__links' key={link.name} style={{ color: 'white' }}>
-          <button className='btn' onClick={() => handleLinkClick(link.url)}>
-            <i className={`fa fa-${link.icon}`} />
-            {link.name}
-          </button>
-        </li>
-      ))}
-    </ul>
+    <div className='social__links__container'>
+      <div className='btn__container'> {socialMediaLinks.map((link) => (
+        <button className='link__btn' key={link.name} onClick={() => handleLinkClick(link.url)}>
+          {link.name}
+        </button>
+      ))}</div>
+     
     </div>
-
   );
 };
 

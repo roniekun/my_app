@@ -1,42 +1,106 @@
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import SocialLinks from './socialLinks/SocialLinks';
-// import ToggleDarkMode from './ToggleDarkMode';
 import './Navbar.css';
 
-
-const Navbar = ({showNavbar,isDesktop,isSmallScreen}) => {
+const Navbar = ({ showNavbar, isDesktop, isSmallScreen }) => {
   const location = useLocation();
 
+  const containerVariants = {
+    hidden: {
+      y: -20,
+      opacity: 0,
+      transition: {
+        type: 'keyframes',
+        values: [-20, 0],
+        duration: 0.6,
+      },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'keyframes',
+        values: [0,-20],
+        duration: 0.6,
+        when: 'beforeChildren',
+        staggerChildren: 0.1,
+      },
+    },
+  };
+  
+  const linkVariants = {
+    hidden: {
+      y: -20,
+      opacity: 0,
+      transition: { duration: 0.5, ease: 'easeOut' },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: 'easeIn' },
+    },
+    hover: {
+      scale: 1.1,
+    },
+    tap: {
+      scale: 0.9,
+    },
+  };
+  
+
+  const links = [
+    { to: '/', text: 'home' },
+    { to: '/about', text: 'about' },
+    { to: '/portfolio', text: 'portfolio' },
+    { to: '/contact', text: 'contact' },
+  ];
+
+  const navbarLinks = links.map((link, index) => (
+    <AnimatePresence key={link.to}>
+      <motion.div
+        className={`link__wrapper ${showNavbar ? 'link__wrapper' : ''}`}
+        key={link.to}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+        variants={linkVariants}
+        transition={{ delay: isSmallScreen ? index * 0.1 : 0 }}
+        whileHover={isSmallScreen ? 'hover' : {}}
+        whileTap={isSmallScreen ? 'tap' : {}}
+      >
+        <Link
+          className={`${showNavbar ? 'navbar__link' : ''} ${
+            location.pathname === link.to ? 'active' : ''
+          }`}
+          to={link.to}
+        >
+          {link.text}
+        </Link>
+      </motion.div>
+    </AnimatePresence>
+  ));
 
   return (
-    <>
-  
-      <nav className={showNavbar ? 'navbar__container' : 'navbar__container__hidden'}>
-      {/* <ToggleDarkMode/> */}
-        <div className={showNavbar ? 'link__wrapper' : 'link__wrapper__hidden'}>
-          <Link to="/" className={`navbar__link ${location.pathname === '/' ? 'active' : ''}`}>
-            home
-          </Link>
-          <Link to="/about" className={`navbar__link ${location.pathname === '/about' ? 'active' : ''}`}>
-            about
-          </Link>
-          <Link to="/portfolio" className={`navbar__link ${location.pathname === '/portfolio' ? 'active' : ''}`}>
-            portfolio
-          </Link>
-          <Link to="/contact" className={`navbar__link ${location.pathname === '/contact' ? 'active' : ''}`}>
-            contact
-          </Link>
-      
-        </div>
-        {showNavbar && isSmallScreen && !isDesktop && (
-    <>
-      <SocialLinks />
-      <span className="text">copyright 2023. right reserved</span>
-    </>
-  )}
-      </nav>
-
-    </>
+    <AnimatePresence mode='wait'>
+      {showNavbar && (
+        <motion.nav
+          className="navbar__container"
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={containerVariants}
+        >
+          {navbarLinks}
+          {isSmallScreen && !isDesktop && (
+            <>
+              <SocialLinks />
+            </>
+          )}
+        </motion.nav>
+      )}
+    </AnimatePresence>
   );
 };
 
