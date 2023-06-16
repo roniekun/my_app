@@ -18,6 +18,11 @@
   box-sizing: border-box;
 } */
 
+#component-dark{
+  background-color: black;
+  color: white;
+}
+
 
 
 

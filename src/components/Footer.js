@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 import SocialLinks from './socialLinks/SocialLinks';
 import './Footer.css';
 
@@ -15,13 +16,18 @@ function Footer({ showNavbar}) {
   }, [showNavbar,showFooter]);
 
   return (
-    <div className={`footer__container ${!showFooter ? 'hidden' :''}`}>
+    <ThemeContext.Consumer>
+  {({ theme }) => (
+    <div id={`component-${theme}`} className={`footer__container ${!showFooter ? 'hidden' :''}`}>
  {showFooter && (
     <>
       <SocialLinks />   
     </>
   )}
 </div>
+
+)}
+</ThemeContext.Consumer>
   );
 }
 

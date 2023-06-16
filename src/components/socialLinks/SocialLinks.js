@@ -1,7 +1,8 @@
 import React from 'react';
 import './SocialLinks.css';
+import { ThemeContext } from '../../context/ThemeContext';
 
-const SocialLinks = () => {
+const SocialLinks = ({fontColor}) => {
   const socialMediaLinks = [
     { name: 'Facebook', icon: 'facebook', url: 'https://www.facebook.com/ronieuxjpg' },
     { name: 'LinkedIn', icon: 'linkedin', url: 'https://linkedin.com/in/roniebenitez' },
@@ -15,14 +16,22 @@ const SocialLinks = () => {
   };
 
   return (
+    <ThemeContext.Consumer>
+  {({ theme }) => (
     <div className='social__links__container'>
-      <div className='btn__container'> {socialMediaLinks.map((link) => (
-        <button className='link__btn' key={link.name} onClick={() => handleLinkClick(link.url)}>
+      <div className='btn__container'id={`component-${theme}`} >  
+      
+      {socialMediaLinks.map((link) => (
+        <button  id={`component-${theme}`} 
+        className='link__btn' key={link.name} 
+        // style={{ color: fontColor }}
+         onClick={() => handleLinkClick(link.url)}>
           {link.name}
         </button>
-      ))}</div>
-     
-    </div>
+        ))}</div>
+      </div>
+        )}
+        </ThemeContext.Consumer>
   );
 };
 

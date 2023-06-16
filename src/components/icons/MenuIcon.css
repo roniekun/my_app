@@ -21,7 +21,7 @@
   
     width: 40%;
     height: 3px;
-    background-color:white;
+    background-color: black;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     position: relative;
     transform: translateX(-35%);
@@ -32,7 +32,7 @@
   .burger-linee {
     width: 70%;
     height: 3px;
-    background-color:white;
+    background-color: black;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     position: relative;
     align-self: center;
@@ -40,7 +40,7 @@
   .burger-lineee {
     width: 40%;
     height: 3px;
-    background-color:white; /* Adjust the color as needed */
+    background-color:black; /* Adjust the color as needed */
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     transform: translateX(35%);
     position: relative;

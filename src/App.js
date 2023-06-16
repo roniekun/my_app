@@ -2,13 +2,15 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import AutoscrollButton from './components/AutoscrollButton';
+import AutoscrollButton from './components/buttons/AutoscrollButton';
 import Home from './components/main/Home';
 import Contact from './components/main/Contact';
 import About from './components/main/About';
 import Portfolio from './components/main/Portfolio';
-import MenuIcon from './components/MenuIcon';
+import MenuIcon from './components/icons/MenuIcon';
 import './App.css';
+import ToggleTheme from './components/buttons/ToggleTheme';
+import { ThemeProvider, ThemeContext } from './context/ThemeContext';
 
 const App = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -47,39 +49,47 @@ const App = () => {
       window.removeEventListener('resize', handleResizeEvent);
       window.removeEventListener('scroll', handleScrollEvent);
     };
-  }, [handleResize, handleScroll, isDesktop,scrollPosition]);
+  }, [handleResize, handleScroll, isDesktop, scrollPosition]);
 
   return (
-    <BrowserRouter>
-      <div className='app__container'>
-        <Header
-          showNavbar={showNavbar}
-          isDesktop={isDesktop}
-          isSmallScreen={isSmallScreen}
-        />
+    <ThemeProvider>
+      <BrowserRouter>
+        <ThemeContext.Consumer>
+          {({ theme }) => {
+            // console.log(`ID: component-${theme}`);
+            return (
+              <div className='app__container' id={`component-${theme}`}>
+                <ToggleTheme />
 
-        <MenuIcon
-          showNavbar={showNavbar}
-          isSmallScreen={isSmallScreen}
-          setShowNavbar={setShowNavbar}
-        />
-
-        <Routes>
-          <Route path='/' element={<Home scrollPosition={scrollPosition} />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/portfolio' element={<Portfolio />} />
-          <Route path='/contact' element={<Contact />} />
-        </Routes>
-
-        <AutoscrollButton
-          isSmallScreen={isSmallScreen}
-          isDesktop={isDesktop}
-          showNavbar={showNavbar}
-        />
-
-        <Footer showNavbar={showNavbar} setShowNavbar={setShowNavbar} />
-      </div>
-    </BrowserRouter>
+                {/* Rest of your component code */}
+                <Header
+                  showNavbar={showNavbar}
+                  isDesktop={isDesktop}
+                  isSmallScreen={isSmallScreen}
+                />
+                <MenuIcon
+                  showNavbar={showNavbar}
+                  isSmallScreen={isSmallScreen}
+                  setShowNavbar={setShowNavbar}
+                />
+                <Routes>
+                  <Route path='/' element={<Home scrollPosition={scrollPosition} />} />
+                  <Route path='/about' element={<About />} />
+                  <Route path='/portfolio' element={<Portfolio />} />
+                  <Route path='/contact' element={<Contact />} />
+                </Routes>
+                <AutoscrollButton
+                  isSmallScreen={isSmallScreen}
+                  isDesktop={isDesktop}
+                  showNavbar={showNavbar}
+                />
+                <Footer showNavbar={showNavbar} setShowNavbar={setShowNavbar} />
+              </div>
+            );
+          }}
+        </ThemeContext.Consumer>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 };
 

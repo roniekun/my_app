@@ -18,3 +18,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* DARKMODECONTEXT */
+/* Global */
+.dark-mode {
+  background-color:#0B0F19;
+  color: white;
+}
+
+/* MenuIcon */
+
+.burger-line {
+  background-color: black;
+}
+.burger-linee {
+  background-color: black;
+}
+.burger-lineee{ background-color: black;}

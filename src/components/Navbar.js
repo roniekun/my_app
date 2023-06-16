@@ -1,8 +1,8 @@
-import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import SocialLinks from './socialLinks/SocialLinks';
 import './Navbar.css';
+import { ThemeContext } from '../context/ThemeContext';
 
 const Navbar = ({ showNavbar, isDesktop, isSmallScreen }) => {
   const location = useLocation();
@@ -22,14 +22,14 @@ const Navbar = ({ showNavbar, isDesktop, isSmallScreen }) => {
       y: 0,
       transition: {
         type: 'keyframes',
-        values: [0,-20],
+        values: [0, -20],
         duration: 0.6,
         when: 'beforeChildren',
         staggerChildren: 0.1,
       },
     },
   };
-  
+
   const linkVariants = {
     hidden: {
       y: -20,
@@ -48,7 +48,6 @@ const Navbar = ({ showNavbar, isDesktop, isSmallScreen }) => {
       scale: 0.9,
     },
   };
-  
 
   const links = [
     { to: '/', text: 'home' },
@@ -57,50 +56,54 @@ const Navbar = ({ showNavbar, isDesktop, isSmallScreen }) => {
     { to: '/contact', text: 'contact' },
   ];
 
-  const navbarLinks = links.map((link, index) => (
-    <AnimatePresence key={link.to}>
-      <motion.div
-        className={`link__wrapper ${showNavbar ? 'link__wrapper' : ''}`}
-        key={link.to}
-        initial="hidden"
-        animate="visible"
-        exit="hidden"
-        variants={linkVariants}
-        transition={{ delay: isSmallScreen ? index * 0.1 : 0 }}
-        whileHover={isSmallScreen ? 'hover' : {}}
-        whileTap={isSmallScreen ? 'tap' : {}}
-      >
-        <Link
-          className={`${showNavbar ? 'navbar__link' : ''} ${
-            location.pathname === link.to ? 'active' : ''
-          }`}
-          to={link.to}
-        >
-          {link.text}
-        </Link>
-      </motion.div>
-    </AnimatePresence>
-  ));
-
   return (
-    <AnimatePresence mode='wait'>
-      {showNavbar && (
-        <motion.nav
-          className="navbar__container"
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          variants={containerVariants}
-        >
-          {navbarLinks}
-          {isSmallScreen && !isDesktop && (
-            <>
-              <SocialLinks />
-            </>
+    <ThemeContext.Consumer>
+      {({ theme }) => (
+        <AnimatePresence mode="wait">
+          {showNavbar && (
+            <motion.nav
+              className="navbar__container"
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={containerVariants}
+              id={`component-${theme}`}
+            >
+              {links.map((link, index) => (
+                <AnimatePresence key={link.to}>
+                  <motion.div
+                    className={`link__wrapper ${showNavbar ? 'link__wrapper' : ''}`}
+                    key={link.to}
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={linkVariants}
+                    transition={{ delay: isSmallScreen ? index * 0.1 : 0 }}
+                    whileHover={isSmallScreen ? 'hover' : {}}
+                    whileTap={isSmallScreen ? 'tap' : {}}
+                  >
+                    <Link
+                      id={`component-${theme}`}
+                      className={`${showNavbar ? 'navbar__link' : ''} ${
+                        location.pathname === link.to ? 'active' : ''
+                      }`}
+                      to={link.to}
+                    >
+                      {link.text}
+                    </Link>
+                  </motion.div>
+                </AnimatePresence>
+              ))}
+              {isSmallScreen && !isDesktop && (
+                <>
+                  <SocialLinks fontColor="white" />
+                </>
+              )}
+            </motion.nav>
           )}
-        </motion.nav>
+        </AnimatePresence>
       )}
-    </AnimatePresence>
+    </ThemeContext.Consumer>
   );
 };
 
