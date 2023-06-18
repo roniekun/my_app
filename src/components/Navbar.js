@@ -3,9 +3,12 @@ import { Link, useLocation } from 'react-router-dom';
 import SocialLinks from './socialLinks/SocialLinks';
 import './Navbar.css';
 import { ThemeContext } from '../context/ThemeContext';
+import React, { useContext } from 'react';
+
 
 const Navbar = ({ showNavbar, isDesktop, isSmallScreen }) => {
-  const location = useLocation();
+const location = useLocation();
+const { theme } = useContext(ThemeContext);
 
   const containerVariants = {
     hidden: {
@@ -56,9 +59,9 @@ const Navbar = ({ showNavbar, isDesktop, isSmallScreen }) => {
     { to: '/contact', text: 'contact' },
   ];
 
-  return (
+   return (
     <ThemeContext.Consumer>
-      {({ theme }) => (
+      {(themeContext) => (
         <AnimatePresence mode="wait">
           {showNavbar && (
             <motion.nav
@@ -99,7 +102,7 @@ const Navbar = ({ showNavbar, isDesktop, isSmallScreen }) => {
                   <SocialLinks fontColor="white" />
                 </>
               )}
-            </motion.nav>
+             </motion.nav>
           )}
         </AnimatePresence>
       )}
@@ -107,4 +110,4 @@ const Navbar = ({ showNavbar, isDesktop, isSmallScreen }) => {
   );
 };
 
-export default Navbar;
+export default Navbar

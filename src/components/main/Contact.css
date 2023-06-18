@@ -1,9 +1,9 @@
 .contact__container{
     display: flex;
-    margin-top: 100px;
     height: 2000px;
-    padding-top: 100px;
     justify-content: center;
+    font-style: italic;
+    padding-top: 100px;
   
     }
   

@@ -7,29 +7,16 @@
     background-color: #F6F6F6;
     margin: 0;
     font-family: 'Rajdhani', sans-serif;
+    bottom:0;
+    flex-direction: column;
   }
  ul{
     display: flex;
-
     list-style: none;
     max-width: fit-content;
  
 
  }
-.text{
-    text-transform: capitalize;
-    padding-right: 5px;
-    text-decoration: none;
-    z-index: 2;
-    bottom: 0;
-
-}
-
-    p{
-        display: inline-block;
-        font-size: 12px;
-    }
- 
 @media (max-width: 768px) {
 
     .text{
@@ -40,16 +27,11 @@
        
      
     }
-    ul{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
 }
 
 /* DARKMODE */
 #component-dark{
 
     background-color: black;
+    color: white;
 }

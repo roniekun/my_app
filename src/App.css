@@ -1,27 +1,14 @@
 
-/* .app__container {
-  flex-grow: 1;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  font-family: 'Work Sans', sans-serif;
+.app__container{
+  height: fit-content;
+  z-index: 2;
+  margin-top: 0;
+  top:0;
   margin: 0;
-  box-sizing: border-box;
-  background-color: #FFFFFF;
-  z-index: 1;
-  overflow-x: hidden;
-} */
-/* 
-.app__container > * {
-  flex: 0 0 auto;
-  margin: 10px;
-  box-sizing: border-box;
-} */
-
-#component-dark{
-  background-color: black;
-  color: white;
+  bottom: 0;
+  overflow-y: auto; 
 }
+
 
 
 

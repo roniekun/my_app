@@ -7,7 +7,7 @@ import Home from './components/main/Home';
 import Contact from './components/main/Contact';
 import About from './components/main/About';
 import Portfolio from './components/main/Portfolio';
-import MenuIcon from './components/icons/MenuIcon';
+import Menu from './components/icons/Menu';
 import './App.css';
 import ToggleTheme from './components/buttons/ToggleTheme';
 import { ThemeProvider, ThemeContext } from './context/ThemeContext';
@@ -61,13 +61,13 @@ const App = () => {
               <div className='app__container' id={`component-${theme}`}>
                 <ToggleTheme />
 
-                {/* Rest of your component code */}
+        
                 <Header
                   showNavbar={showNavbar}
                   isDesktop={isDesktop}
                   isSmallScreen={isSmallScreen}
                 />
-                <MenuIcon
+                <Menu
                   showNavbar={showNavbar}
                   isSmallScreen={isSmallScreen}
                   setShowNavbar={setShowNavbar}

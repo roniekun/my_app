@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import './AutoscrollButton.css';
+import { ThemeContext } from "../../context/ThemeContext";
 
 
 function AutoscrollButton({ isSmallScreen, showNavbar }) {
@@ -11,8 +12,8 @@ function AutoscrollButton({ isSmallScreen, showNavbar }) {
   };
   //applies the condition 
   const handleScroll = (setIsVisible, isSmallScreen, showNavbar) => {
-    const scrollThreshold = 200;
-    setIsVisible(window.pageYOffset > scrollThreshold && !(isSmallScreen && showNavbar));
+    const scrollThreshold = 500;
+    setIsVisible(window.pageYOffset > scrollThreshold && !(isSmallScreen && showNavbar)); //false
   };
 
   //this part will handle scroll event
@@ -26,20 +27,27 @@ function AutoscrollButton({ isSmallScreen, showNavbar }) {
     };
   }, [isSmallScreen, showNavbar]);
 
+
+
   useEffect(() => {
-    handleScroll(setIsVisible, isSmallScreen, showNavbar);
+    handleScroll(setIsVisible, isSmallScreen, showNavbar); // setisVisible to true base on the value of the dependencies
   }, [showNavbar, isSmallScreen]);
 
+
   return (
-    <div>
-      <button
-        className={isVisible ? 'scroll__btn' : 'hidden'}
-        onClick={handleScrollToTop}
-      >
-        ^
-      </button>
-    </div>
+    <ThemeContext.Consumer>
+      {theme => (
+        <div id={`component-${theme}`}>
+          <button
+            className={isVisible ? 'btn' : 'hidden'}
+            onClick={handleScrollToTop}
+          >
+            <h3>Back to top</h3>
+          </button>
+        </div>
+      )}
+    </ThemeContext.Consumer>
   );
-}
+};
 
 export default AutoscrollButton;
