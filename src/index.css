@@ -31,4 +31,5 @@ code {
 .dark-mode {
   background-color: #090B0D;
   color: white;
+  transition:1s;
 }

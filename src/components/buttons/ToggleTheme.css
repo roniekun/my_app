@@ -4,13 +4,14 @@
         width: 25px;
         height: 25px;
         border-radius: 50%;
-        right:25px;
+        right:40px;
         bottom:50px;
         z-index: 9999;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
         background-color:#0B0F19;
         color: white;
         backdrop-filter: blur(10px);
+        opacity: 85%;
 
         /* background-color: linear-gradient(#0B0F19, #000000);
         backdrop-filter: blur(10px);

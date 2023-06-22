@@ -10,21 +10,23 @@
     margin-bottom: 0;
 }
 .logo{
+    font-family: 'VT323', monospace;
     color: black;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 25px;
     position: fixed;
     font-weight: 400;
     z-index: 9999;
-    margin: 18px 20px ;
+    margin: 17px 35px ;
     text-transform: uppercase;
     letter-spacing: 0px;
     opacity: 60%;
 
 }
 .logo:nth-child(2){
-    margin: 18px 79px;
+    margin: 18px 85px;
     font-weight: bold;
+    font-size: 24px;
 
 }
 /* span{

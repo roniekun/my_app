@@ -17,7 +17,7 @@ const { theme } = useContext(ThemeContext);
       transition: {
         type: 'keyframes',
         values: [-20, 0],
-        duration: 0.6,
+        duration: 0.3,
       },
     },
     visible: {
@@ -26,7 +26,7 @@ const { theme } = useContext(ThemeContext);
       transition: {
         type: 'keyframes',
         values: [0, -20],
-        duration: 0.6,
+        duration: 0.3,
         when: 'beforeChildren',
         staggerChildren: 0.1,
       },
@@ -37,12 +37,12 @@ const { theme } = useContext(ThemeContext);
     hidden: {
       y: -20,
       opacity: 0,
-      transition: { duration: 0.5, ease: 'easeOut' },
+      transition: { duration: 0.3, ease: 'linear' },
     },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: 'easeIn' },
+      transition: { duration: 0.3, ease: 'linear' },
     },
     hover: {
       scale: 1.1,
@@ -83,9 +83,10 @@ const { theme } = useContext(ThemeContext);
                     variants={linkVariants}
                     transition={{ delay: isSmallScreen ? index * 0.1 : 0 }}
                     whileHover={isSmallScreen ? 'hover' : {}}
-                    whileTap={isSmallScreen ? 'tap' : {}}
+                    whileTap={'tap'}
                   >
                     <Link
+                     
                       id={`component-${theme}`}
                       className={`${showNavbar ? 'navbar__link' : ''} ${
                         location.pathname === link.to ? 'active' : ''
@@ -99,7 +100,7 @@ const { theme } = useContext(ThemeContext);
               ))}
               {isSmallScreen && !isDesktop && (
                 <>
-                  <SocialLinks fontColor="white" />
+                  <SocialLinks fontColor="white" isDesktop={isDesktop} isSmallScreen={isSmallScreen} />
                 </>
               )}
              </motion.nav>
