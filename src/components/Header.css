@@ -17,14 +17,14 @@
     position: fixed;
     font-weight: 400;
     z-index: 9999;
-    margin: 17px 35px ;
+    margin: 14px 35px ;
     text-transform: uppercase;
     letter-spacing: 0px;
     opacity: 60%;
 
 }
 .logo:nth-child(2){
-    margin: 18px 85px;
+    margin: 15px 85px;
     font-weight: bold;
     font-size: 24px;
 

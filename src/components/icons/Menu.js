@@ -1,7 +1,6 @@
 import React from 'react';
 import './Menu.css';
-import MenuIcon from '@mui/icons-material/Menu';
-import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+import {Sling as Hamburger} from 'hamburger-react';
 import { ThemeContext } from '../../context/ThemeContext';
 
 const Menu = ({ showNavbar, isSmallScreen, setShowNavbar }) => {
@@ -16,10 +15,11 @@ const Menu = ({ showNavbar, isSmallScreen, setShowNavbar }) => {
       {theme => (
     <div id={`component-${theme}`}>
       {isSmallScreen && (
-        <div style={{ position: 'fixed', top: '0', right: '15px', margin: '0.3rem', padding: '0.5rem', zIndex: '9999', opacity: '0.8'  }} 
+        <div style={{ position: 'fixed', top: '0', right: '15px', zIndex: '9999', opacity: '0.7'  }} 
         onClick={handleClick}>
-          {!showNavbar ? <MenuIcon style={{ height: '35px', width: '35px' }} /> :
-           <MenuOpenIcon style={{ height: '35px', width: '35px'}}/> }
+
+           <Hamburger toggled={showNavbar} toggle={setShowNavbar} size = {23} /> 
+
         </div>
       )}
     </div>

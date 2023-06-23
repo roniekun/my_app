@@ -12,7 +12,6 @@ function Home() {
     <div className='home__container'>
       <section>
       
-  
       </section>
     </div>
   );
