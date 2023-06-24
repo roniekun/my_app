@@ -1,9 +1,11 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import SocialLinks from './socialLinks/SocialLinks';
 import './Navbar.css';
 import { ThemeContext } from '../context/ThemeContext';
 import React, { useContext } from 'react';
+import ToggleTheme from './buttons/ToggleTheme';
+import SocialLinks from './socialLinks/SocialLinks';
+
 
 
 const Navbar = ({ showNavbar, isDesktop, isSmallScreen }) => {
@@ -63,6 +65,7 @@ const { theme } = useContext(ThemeContext);
     <ThemeContext.Consumer>
       {(themeContext) => (
         <AnimatePresence mode="wait">
+       
           {showNavbar && (
             <motion.nav
               className="navbar__container"
@@ -95,15 +98,18 @@ const { theme } = useContext(ThemeContext);
                     >
                       {link.text}
                     </Link>
+
+                  
+                   
                   </motion.div>
                 </AnimatePresence>
               ))}
-              {isSmallScreen && !isDesktop && (
-                <>
-                  <SocialLinks fontColor="white" isDesktop={isDesktop} isSmallScreen={isSmallScreen} />
-                </>
-              )}
+                            
+                  <ToggleTheme isSmallScreen={isSmallScreen}/>
+                 { isSmallScreen && <SocialLinks showNavbar={showNavbar}/>}
              </motion.nav>
+             
+
           )}
         </AnimatePresence>
       )}

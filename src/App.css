@@ -8,6 +8,14 @@
   bottom: 0;
   overflow-y: auto; 
 }
+/* DARKMODECONTEXT */
+/* Global */
+#component-dark {
+  background-color: #090B0D;
+  color: white;
+  transition:.5s;
+}
+
 
 
 

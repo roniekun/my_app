@@ -1,8 +1,8 @@
 .social__links__container{
     display: grid;
-    grid-template-rows: 1fr;
-    padding: 70px 0px 25px 0px;
+    grid-template-columns: 1fr;
     z-index: 9;
+    
     
 
 }
@@ -17,10 +17,11 @@
     cursor: pointer;
     background-color: transparent;
     display: block;
-    font-family: 'Rajdhani', sans-serif;
+    /* font-family: 'Rajdhani', sans-serif; */
     opacity: 0.7;
     transition: .3s;
     inset: 10px;
+    margin: 5px;
 
     
 }
@@ -36,10 +37,4 @@
 
     }
     
-}
-/* DARKMODE */
-
-#component-dark{
-
-    color: white;
 }

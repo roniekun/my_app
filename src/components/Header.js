@@ -2,6 +2,7 @@ import Navbar from './Navbar';
 import { ThemeContext } from '../context/ThemeContext';
 import './Header.css';
 
+
 function Header({showNavbar,isSmallScreen,isDesktop}) {
 
  
@@ -12,9 +13,13 @@ function Header({showNavbar,isSmallScreen,isDesktop}) {
       <>
     
       <div id={`component-${theme}`}  className='header__container'>
+
+     
        
-        <h1 id={`component-${theme}`} className='logo'>ronie</h1>
-        <h1 id={`component-${theme}`} className='logo'>kun<span>.</span> </h1>
+        <h1 id={`component-${theme}`} className='logo'>ronie<span>kun.io</span></h1>
+
+     
+    
       
     {/* <a href="/" className="logo">
       <img
@@ -27,6 +32,7 @@ function Header({showNavbar,isSmallScreen,isDesktop}) {
         isDesktop={isDesktop}
         isSmallScreen={isSmallScreen}
         />
+
       </div>
       </>
              )}

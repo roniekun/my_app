@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
+import './Footer.css'; 
 import SocialLinks from './socialLinks/SocialLinks';
-import './Footer.css';
+
 
 function Footer({ showNavbar}) {
   const [showFooter, setShowFooter] = useState(window.innerWidth > 768);
@@ -21,11 +22,11 @@ function Footer({ showNavbar}) {
     <div id={`component-${theme}`} className={`footer__container ${!showFooter ? 'hidden' :''}`}>
  {showFooter && (
     <>
-
-      <SocialLinks />  
-      <p>© 2023. All rights reserved. This site is a work in progress :)</p> 
+         <SocialLinks/>
+      <p className='text'>© 2023. All rights reserved. This site is a work in progress :)</p> 
     </>
   )}
+ 
 </div>
 
 )}

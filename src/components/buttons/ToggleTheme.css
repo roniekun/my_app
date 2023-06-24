@@ -1,23 +1,52 @@
-.toggle__darkmode__btn{
-        z-index: 9999;
-        position:fixed;
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        right:40px;
-        bottom:50px;
-        z-index: 9999;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
-        background-color:#0B0F19;
-        color: white;
-        backdrop-filter: blur(10px);
-        opacity: 85%;
-
-        /* background-color: linear-gradient(#0B0F19, #000000);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+.toggle__component{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 40px 35px;
+        right: 0;
         position: fixed;
-        color: #0B0F19,;
-        border: none; */
+
 }
+.settheme__container{
+        width: 40px;
+        height: 25px;
+        background-color: white;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        z-index: 99999;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        
+}
+
+.settheme__btn{
+
+        height: 22px;
+        width: 22px;
+        background-color: black;
+        border-radius: 50%;
+        opacity: .8;
+        transform: translateX(0);
+        transition: .3s;
+}
+.theme__on{
+        transform: translateX(70%);
+       
+
+
+}
+@media (max-width: 768px) {
+
+        .btn__container{
+
+         position: relative;
+         
+        }
+        .toggle__component{
+                position: relative;
+        }
+}
+
 

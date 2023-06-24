@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import AutoscrollButton from './components/buttons/AutoscrollButton';
@@ -9,7 +9,6 @@ import About from './components/main/About';
 import Portfolio from './components/main/Portfolio';
 import Menu from './components/icons/Menu';
 import './App.css';
-import ToggleTheme from './components/buttons/ToggleTheme';
 import { ThemeProvider, ThemeContext } from './context/ThemeContext';
 
 const App = () => {
@@ -56,12 +55,8 @@ const App = () => {
       <BrowserRouter>
         <ThemeContext.Consumer>
           {({ theme }) => {
-            // console.log(`ID: component-${theme}`);
             return (
               <div className='app__container' id={`component-${theme}`}>
-                <ToggleTheme />
-
-        
                 <Header
                   showNavbar={showNavbar}
                   isDesktop={isDesktop}
@@ -77,6 +72,7 @@ const App = () => {
                   <Route path='/about' element={<About />} />
                   <Route path='/portfolio' element={<Portfolio />} />
                   <Route path='/contact' element={<Contact />} />
+                  <Route path='*' element={<Navigate to="/" />} /> {/* Catch-all route */}
                 </Routes>
                 <AutoscrollButton
                   isSmallScreen={isSmallScreen}
@@ -94,3 +90,4 @@ const App = () => {
 };
 
 export default App;
+
