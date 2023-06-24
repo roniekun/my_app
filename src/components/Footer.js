@@ -21,9 +21,10 @@ function Footer({ showNavbar}) {
   {({ theme }) => (
     <div id={`component-${theme}`} className={`footer__container ${!showFooter ? 'hidden' :''}`}>
  {showFooter && (
-    <>
-         <SocialLinks/>
-      <p className='text'>© 2023. All rights reserved. This site is a work in progress :)</p> 
+    <> 
+      <p id={`component-${theme}`}  className='text'>© 2023. All rights reserved. This site is a work in progress :)</p> 
+     
+      <SocialLinks/>
     </>
   )}
  

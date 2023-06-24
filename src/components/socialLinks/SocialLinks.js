@@ -49,7 +49,7 @@ const SocialLinks = ({fontColor, isSmallScreen, isDesktop, showNavbar}) => {
     onClick={() => handleLinkClick(link.url)}
   >
     <FontAwesomeIcon size='xl'  icon={getFontAwesomeIcon(link.icon)} />
-    {!isSmallScreen && !showNavbar &&(link.name)}
+    {/* {isSmallScreen && !showNavbar &&(link.name)} */}
 
 
   </button>
