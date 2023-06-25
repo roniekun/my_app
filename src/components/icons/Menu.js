@@ -15,10 +15,10 @@ const Menu = ({ showNavbar, isSmallScreen, setShowNavbar }) => {
       {theme => (
     <div id={`component-${theme}`}>
       {isSmallScreen && (
-        <div style={{ position: 'fixed', top: '0', right: '15px', zIndex: '9999', opacity: '0.7'  }} 
+        <div style={{ position: 'fixed', top: '0', right: '15px', zIndex: '9999', opacity: '0.7', height: 'fit-content',width: 'auto' }} 
         onClick={handleClick}>
 
-           <Hamburger toggled={showNavbar} toggle={setShowNavbar} size = {23} /> 
+           <Hamburger style ={{ margin : '0', padding: '0'}}toggled={showNavbar} toggle={setShowNavbar} size = {23} /> 
 
         </div>
       )}
