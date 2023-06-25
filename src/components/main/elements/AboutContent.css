@@ -1,0 +1,24 @@
+.about__content{
+
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px 200px;
+    padding:45px;
+    outline: dashed red;
+    height: fit-content;
+    font-style: normal;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-family: 'Rajdhani', sans-serif;
+    
+}
+@media (max-width: 768px) {
+
+    .about__content{
+
+        display:flex;
+        margin:10px;
+        font-size: 15px;
+    }
+}

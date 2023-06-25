@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
 import './Footer.css'; 
 import SocialLinks from './socialLinks/SocialLinks';
+import Logo from './icons/Logo';
 
 
 function Footer({ showNavbar}) {
@@ -19,12 +20,14 @@ function Footer({ showNavbar}) {
   return (
     <ThemeContext.Consumer>
   {({ theme }) => (
+
     <div id={`component-${theme}`} className={`footer__container ${!showFooter ? 'hidden' :''}`}>
  {showFooter && (
     <> 
       <p id={`component-${theme}`}  className='text'>© 2023. All rights reserved. This site is a work in progress :)</p> 
-     
+      <div style={{ width:'55%', border: '.5px solid black', margin: '20px', opacity: '0.6' }}></div>
       <SocialLinks/>
+      <Logo />
     </>
   )}
  

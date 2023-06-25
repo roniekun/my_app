@@ -14,9 +14,6 @@ const SocialLinks = ({fontColor, isSmallScreen, isDesktop, showNavbar}) => {
     // Add more social media links as needed
   ];
 
-  const handleLinkClick = (url) => {
-    window.open(url, '_blank');
-  };
   const getFontAwesomeIcon = (iconName) => {
     switch (iconName) {
       case 'facebook':
@@ -41,19 +38,17 @@ const SocialLinks = ({fontColor, isSmallScreen, isDesktop, showNavbar}) => {
       <div className='btn__container'id={`component-${theme}`} >  
       
       {socialMediaLinks.map((link) => (
-  <button
+    <a
     id={`component-${theme}`}
     className='link__btn'
     key={link.name}
-    // style={{ color: fontColor }}
-    onClick={() => handleLinkClick(link.url)}
+    href={link.url}
+    target="_blank"
+    rel="noopener noreferrer"
   >
-    <FontAwesomeIcon size='xl'  icon={getFontAwesomeIcon(link.icon)} />
+    <FontAwesomeIcon size='xl' icon={getFontAwesomeIcon(link.icon)} />
     {/* {isSmallScreen && !showNavbar &&(link.name)} */}
-
-
-  </button>
-
+  </a>
         ))}</div>
       </div>
         )}

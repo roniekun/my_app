@@ -2,15 +2,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import { ThemeContext } from '../context/ThemeContext';
-import React, { useContext } from 'react';
 import ToggleTheme from './buttons/ToggleTheme';
 import SocialLinks from './socialLinks/SocialLinks';
 
 
-
-const Navbar = ({ showNavbar, isDesktop, isSmallScreen }) => {
+const Navbar = ({ showNavbar, isDesktop, isSmallScreen, setShowNavbar}) => {
 const location = useLocation();
-const { theme } = useContext(ThemeContext);
 
   const containerVariants = {
     hidden: {
@@ -61,24 +58,26 @@ const { theme } = useContext(ThemeContext);
     { to: '/contact', text: 'contact' },
   ];
 
-   return (
+    return (
     <ThemeContext.Consumer>
       {(themeContext) => (
         <AnimatePresence mode="wait">
-       
-          {showNavbar && (
+          {showNavbar &&  (
             <motion.nav
               className="navbar__container"
               initial="hidden"
               animate="visible"
               exit="hidden"
               variants={containerVariants}
-              id={`component-${theme}`}
+              id={`component-${themeContext.theme}`}
             >
+     
+              
               {links.map((link, index) => (
                 <AnimatePresence key={link.to}>
+                  {showNavbar &&(
                   <motion.div
-                    className={`link__wrapper ${showNavbar ? 'link__wrapper' : ''}`}
+                    className="link__wrapper"
                     key={link.to}
                     initial="hidden"
                     animate="visible"
@@ -88,9 +87,10 @@ const { theme } = useContext(ThemeContext);
                     whileHover={isSmallScreen ? 'hover' : {}}
                     whileTap={'tap'}
                   >
+                   
                     <Link
-                     
-                      id={`component-${theme}`}
+                       onClick={isSmallScreen ? () => setShowNavbar(false) : null}
+                      id={`component-${themeContext.theme}`} 
                       className={`${showNavbar ? 'navbar__link' : ''} ${
                         location.pathname === link.to ? 'active' : ''
                       }`}
@@ -98,18 +98,13 @@ const { theme } = useContext(ThemeContext);
                     >
                       {link.text}
                     </Link>
-
-                  
-                   
                   </motion.div>
+                  )}
                 </AnimatePresence>
               ))}
-                            
-                  <ToggleTheme isSmallScreen={isSmallScreen}/>
-                 { isSmallScreen && <SocialLinks showNavbar={showNavbar}/>}
-             </motion.nav>
-             
-
+              <ToggleTheme isSmallScreen={isSmallScreen} />
+              {isSmallScreen && <SocialLinks showNavbar={showNavbar} />}
+            </motion.nav>
           )}
         </AnimatePresence>
       )}
@@ -117,4 +112,4 @@ const { theme } = useContext(ThemeContext);
   );
 };
 
-export default Navbar
+export default Navbar;
