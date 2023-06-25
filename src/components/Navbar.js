@@ -58,6 +58,7 @@ const location = useLocation();
     { to: '/contact', text: 'contact' },
   ];
 
+
     return (
     <ThemeContext.Consumer>
       {(themeContext) => (
@@ -102,8 +103,8 @@ const location = useLocation();
                   )}
                 </AnimatePresence>
               ))}
-              <ToggleTheme isSmallScreen={isSmallScreen} />
-              {isSmallScreen && <SocialLinks showNavbar={showNavbar} />}
+              <ToggleTheme isSmallScreen={isSmallScreen} fontColor={"white"} />
+              {isSmallScreen && <SocialLinks showNavbar={showNavbar} fontColor={"white"}/>}
             </motion.nav>
           )}
         </AnimatePresence>

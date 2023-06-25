@@ -11,7 +11,10 @@ function Header({ showNavbar, isSmallScreen, isDesktop, setShowNavbar }) {
           <div className='header__container'>
           <div id={`component-${theme}`} >
              {isSmallScreen && !showNavbar && 
-              <Logo />}
+            // <Logo fontColor={isSmallScreen ? "white" : "black"} />
+            <Logo fontColor={"white"} />
+
+            }
             <Navbar
               showNavbar={showNavbar}
               isDesktop={isDesktop}

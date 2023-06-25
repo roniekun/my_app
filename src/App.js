@@ -66,7 +66,7 @@ const App = () => {
                   isSmallScreen={isSmallScreen}
                   setShowNavbar={setShowNavbar}
                 />
-               {showNavbar &&<Logo />} 
+               {showNavbar &&<Logo fontColor={isSmallScreen ? "white" : "black"} />} 
                 <Menu
                   showNavbar={showNavbar}
                   isSmallScreen={isSmallScreen}

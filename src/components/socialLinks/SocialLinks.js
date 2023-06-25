@@ -44,6 +44,7 @@ const SocialLinks = ({fontColor, isSmallScreen, isDesktop, showNavbar}) => {
     key={link.name}
     href={link.url}
     target="_blank"
+    style={{ color: fontColor }}
     rel="noopener noreferrer"
   >
     <FontAwesomeIcon size='xl' icon={getFontAwesomeIcon(link.icon)} />
