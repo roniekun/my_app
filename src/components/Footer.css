@@ -4,11 +4,12 @@
     justify-content: space-between;
     align-items: center;
     width: 100vw;
-    background-color: #F6F6F6;
+    background-color: #171B25;
     margin: 0;
     /* font-family: 'Rajdhani', sans-serif; */
     bottom:0;
     flex-direction: row;
+    padding-top: 50px;
     padding-left: 100px;
     padding-right: 100px;
     padding-bottom: 32px;
@@ -23,7 +24,7 @@
  .text{
     font-size: 14px;
     padding-right: 0px;
-    color: black;
+    color: #f6f6f6;
  }
 
 
@@ -40,7 +41,7 @@
 
     .text{
         font-size: 12px;
-        color: black;
+        color: #f6f6f6;
         text-justify: center;
         padding-left: 0;
         padding-right: 0;

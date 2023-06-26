@@ -8,11 +8,9 @@ const AboutContent = () => {
         <article>
 
             <h2>Hi! I am Ronie</h2>
-           <p>A self-taught web developer with a passion for creating stunning and functional websites. <br/>
+           <p>A self-taught web developer with passion for creating stunning and functional websites. <br/>
         
-
-With a focus on front-end development, I specialize in crafting captivating websites using HTML, CSS, and ReactJS.<br/>
- I strive to create visually appealing and intuitive interfaces that engage users and convey the essence of a brand or concept.<br/>
+I enjoy crafting captivating webpage, strive to create visually appealing and intuitive interfaces that engage users and convey the essence of a brand or concept.<br/>
 Driven by a desire for constant growth, I challenge myself to learn and adapt to the ever-evolving world of web development. <br/>
 Every day, I dedicate time to refine my coding abilities and explore new techniques, ensuring that I stay at the forefront of industry trends.<br/>
 

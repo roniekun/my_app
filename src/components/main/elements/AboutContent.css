@@ -2,9 +2,11 @@
 
     display:grid;
     grid-template-columns: 1fr 1fr;
-    margin: 20px 200px;
+    margin: 20px 100px;
     padding:45px;
-    outline: dashed red;
+    /* background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    box-shadow:  5px 5px 10px #bebebe,
+                 -5px -5px 10px #ffffff; */
     height: fit-content;
     font-style: normal;
     max-width: 100%;

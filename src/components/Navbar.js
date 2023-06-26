@@ -11,11 +11,11 @@ const location = useLocation();
 
   const containerVariants = {
     hidden: {
-      y: -20,
+      y: -100,
       opacity: 0,
       transition: {
         type: 'keyframes',
-        values: [-20, 0],
+        values: [0, -120],
         duration: 0.3,
       },
     },
